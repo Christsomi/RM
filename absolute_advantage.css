@@ -1,0 +1,78 @@
+
+#MPL_table_complete {
+  width: 100%;
+  position: relative;
+  margin-top: 2%;
+  border-radius: 20px;
+  left: 5%;
+  border: 4px solid black;
+  color: black;
+  background-color: white;
+  padding: 10px;
+}
+
+p[type="number"] {
+  width: 80%;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label {
+  color: black;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+caption {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+th {
+  padding: 20px;
+}
+
+
+#aa_exp_one {
+  left: 10%;
+  width: 90%;
+  position: relative;
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
+.mpl-container {
+  display: flex; /* Use flexbox layout */
+  align-items: center;
+  justify-content: center; /* Center vertically */
+}
+
+.info {
+  margin-left: 10px; /* Add spacing between MPL and info */
+}
+
+.mpl-container p {
+  margin: 0; /* Remove default margin */
+}
+
+
+#left {
+  float: left;
+  margin-left: 10%;
+ /* Float left */
+}
+
+#right {
+  float: right; 
+  margin-right: 20%;
+  width: 33%;/* Float left */
+}

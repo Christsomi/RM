@@ -1,0 +1,371 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #9F9F9F;
+  margin: 0;
+}
+
+h1 {
+  width: 100%;
+  background-color: black;
+  color: white;
+  height: 5%;
+  font-size: 56px;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+
+h2 {
+  width: 96%;
+  font-size: 18px;
+  padding: 20px;
+  margin-left:2%;
+  color: white;
+  margin-right: 2%;
+  text-align: center;
+}
+
+
+
+button {
+  height: auto;
+  width: 6%;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: none;
+}
+
+#button_proceed_img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.tutorial {
+  position: absolute;
+  background-color: white;
+  z-index: 100000000000000;
+  height: 70%;
+  width: 80%;
+  padding: 10px;
+  top: 20%;
+  left: 10%;
+  border-radius: 20px;
+  border: 4px solid black;
+  display: none;
+
+}
+
+.background-transparent {
+  background-color: rgba(255, 255, 255, 0.3); /* Background with 30% opacity when object is clicked */
+}
+
+
+.close-btn {
+  position: absolute; /* Position the close button relative to its closest positioned ancestor */
+  top: 5px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  background-color: transparent; /* Make the button background transparent */
+  border: none; /* Remove button border */
+  color: white; /* Set button color */
+  font-size: 20px; /* Set button font size */
+  cursor: pointer; /* Set cursor to pointer to indicate interactivity */
+}
+
+.close_tutorial {
+  left: 95%;
+  top:10px;
+  width:5%;
+  height:auto;
+  position: relative;
+  cursor: pointer; 
+}
+
+#close_button_img {
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+}
+
+
+.question {
+  position: absolute;
+  width: 6%;
+  left: 5%;
+  top: 20%;
+  height: auto;
+  cursor: pointer; 
+  z-index: 99;
+}
+
+.warning-block {
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  color: white;
+  font-size: 20px;
+  background-color: lightcoral;
+  text-align: center;
+  display: none;
+  padding: 20px;
+  z-index: 99999999;
+}
+
+.section_question_img {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.proceed_button {
+  height: auto;
+  width: 6%;
+  border: 0;
+  right: 4%;
+  top: 50%;
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+
+
+.return_button {
+  height: auto;
+  width: 6%;
+  border: 0;
+  left: 4%;
+  top: 50%;
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  transform: scaleX(-1);
+}
+
+.proceed_three_question {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 4px solid black;
+  height: 20%;
+  width: 40%;
+  align-items: center;
+  z-index: 90;
+}
+
+#skip, #show {
+  text-align: center;
+  font-size: 16px;
+  border-radius: 20px;
+  background-color: black;
+  font-weight: bold;
+  color: white;
+  margin-left: 10%;
+  width: fit-content;
+  padding: 20px;
+  left: 20%;
+  position: relative;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  h1 {
+    flex: 0 0 calc(80% - 20px); 
+    text-align: center;
+    width: 100%;
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0%;
+  }
+
+  h2 {
+    flex: 0 0 calc(80% - 20px); 
+    text-align: center;
+    width: 80%;
+    left: 10%;
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0%;
+  }
+
+  
+  button {
+    margin-top: 4%;
+    height: auto;
+    flex: 0 0 calc(30% - 20px); 
+  }
+
+  .warning-block {
+    margin: 5%;
+    width: 80%;
+  }
+
+  .close_tutorial {
+    left: 85%;
+    top:10px;
+    width:15%;
+    height:auto;
+    position: relative;
+    cursor: pointer; 
+  }
+
+  .question {
+    width: 50px;
+    top:5%;
+  }
+}
+
+#unavailableMessage {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(20, 119, 184);
+  color: white;
+  font-size: 24px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10000;
+}
+
+#price_coefficient_home_country, #price_coefficient_foreign_country, #mpl_coefficient_home_country, #mpl_coefficient_foreign_country {
+  width: 470px;
+  height: auto;
+  background-color: white;
+  border: 4px solid black;
+  position: absolute;
+  right: 15%;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+
+
+.container_mpl_text, .container_price_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 4px;
+}
+
+.large-mpl-text, .large-price-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.small-mpl-text p, .small-price-text p{
+  font-size: 10px;
+  margin: 0;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ratio-container {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  font-size: 24px;
+  margin-left: 10px;
+  margin-right: 10px; /* Adjust font size as needed */
+}
+
+.horizontal-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px; /* Line thickness */
+  background-color: black; /* Line color */
+  margin: 2px;
+  z-index: 1;
+}
+.number {
+  position: relative;
+  z-index: 2;
+  margin-top: 7px;
+}
+
+
+.price_coefficient_table td {
+  padding: 10px;
+}
+
+.mpl_coefficient_table td {
+  padding: 10px;
+}
+
+
+.input-number {
+  width: 20%;
+  text-align: right;
+}
+
+#mpl-table-ready, #price-table-ready {
+  background-color: white;
+  width: 400px;
+  position: absolute;
+  margin-top: 20px;
+  /* margin: 20px; */
+  left: 17%;
+  padding: 20px;
+  border-radius: 20px;
+  border: 4px solid black;
+}
+
+#price-coef-explanation, #mpl-coef-explanation {
+  width: 400px;
+  position: absolute;
+  top: 40%;
+  left: 17%;
+  color: white;
+  text-align: left;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+#price-coef-explanation:hover, #mpl-coef-explanation:hover {
+background-color: rgb(66, 64, 64);
+}
+
+#price-coef-explanation p, #mpl-coef-explanation p{
+  font-size: 16px;
+}
+
+#pr-coef-foreign-button, #pr-coef-home-button, #mpl-coef-foreign-button, #mpl-coef-home-button {
+  background-color: red;
+  width: 150px;
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
+  margin-left: 150px;
+}
+
+#pr-coef-foreign-button:hover, #pr-coef-home-button:hover, #mpl-coef-foreign-button:hover, #mpl-coef-home-button:hover {
+  background-color: rgb(180, 51, 51);
+}
+
+.input-number:hover {
+  border-color: red;
+}

@@ -1,7 +1,7 @@
 let myChart1; // Declare myChart1 as a global variable
 let myChart2; // Declare myChart2 as a global variable
-let myChart1Box;
-let myChart2Box;
+let myChart1Duplicate; // Duplicate for myChart1
+let myChart2Duplicate; 
 
 
 function decidePPF() {
@@ -167,6 +167,78 @@ function plotPPF1() { // Here I have a case when country one has a comparative a
         myChart2 = new Chart(chartElement, config2);
     });
 
+    const config1Duplicate = {
+        type: 'line',
+        data: data1,
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    ticks: {
+                        stepSize: 1
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left'
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true // Show legend for duplicate chart
+                },
+                tooltip: {
+                    enabled: true, // Enable tooltips
+                    callbacks: {
+                        // Show x and y values when hovering over a point
+                        label: function(context) {
+                            const xValue = context.raw.x.toFixed(2);  // Format to two decimal places
+                            const yValue = context.raw.y.toFixed(2);  // Format to two decimal places
+                            return `(${xValue}, ${yValue})`; // Display as (x, y)
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    const chartOneDuplicateElements = document.querySelectorAll('#myChartDuplicate1'); // Assuming you have a separate element for the duplicate
+    chartOneDuplicateElements.forEach((chartElement, index) => {
+        myChart1Duplicate = new Chart(chartElement, config1Duplicate);
+    });
+
+    const config2Duplicate = {
+        type: 'line',
+        data: data2,
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    ticks: {
+                        stepSize: 1
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left'
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true // Show legend for duplicate chart
+                }
+            }
+        }
+    };
+
+    const chartTwoDuplicateElements = document.querySelectorAll('#myChartDuplicate2'); // Assuming you have a separate element for the duplicate
+    chartTwoDuplicateElements.forEach((chartElement, index) => {
+        myChart2Duplicate = new Chart(chartElement, config2Duplicate);
+    });
+
+
 }
 
 
@@ -318,6 +390,66 @@ function plotPPF2() {  // Here I have a case when country one has a comparative 
     const chartTwoElements = document.querySelectorAll('#myChart2');
     chartTwoElements.forEach((chartElement, index) => {
         myChart2 = new Chart(chartElement, config2);
+    });
+
+    const config1Duplicate = {
+        type: 'line',
+        data: data1,
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    ticks: {
+                        stepSize: 1
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left'
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true // Show legend for duplicate chart
+                }
+            }
+        }
+    };
+
+    const chartOneDuplicateElements = document.querySelectorAll('#myChartDuplicate1'); // Assuming you have a separate element for the duplicate
+    chartOneDuplicateElements.forEach((chartElement, index) => {
+        myChart1Duplicate = new Chart(chartElement, config1Duplicate);
+    });
+
+    const config2Duplicate = {
+        type: 'line',
+        data: data2,
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    ticks: {
+                        stepSize: 1
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left'
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true // Show legend for duplicate chart
+                }
+            }
+        }
+    };
+
+    const chartTwoDuplicateElements = document.querySelectorAll('#myChartDuplicate2'); // Assuming you have a separate element for the duplicate
+    chartTwoDuplicateElements.forEach((chartElement, index) => {
+        myChart2Duplicate = new Chart(chartElement, config2Duplicate);
     });
 
 }

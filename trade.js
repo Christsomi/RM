@@ -14,6 +14,7 @@ decidePPF_animation();
 document.getElementById('start-trade-button').style.display = 'none';
 wageArrows();
 wageMessages();
+
  }
 
 

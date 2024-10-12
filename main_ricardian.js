@@ -426,12 +426,14 @@ function startTradeGo(){
   document.getElementById('section_price_coefficient').style.display = 'none';
   document.getElementById('section_mpl_coefficient').style.display = 'none';
   document.getElementById('proceed_three_question').style.display = 'none';
+  document.getElementById('my_email').style.display = 'none';
   setPriceValues();
   setMPLValues();
   decidePPF();
   //set_industries();
   wages();
   priceMessages();
+
   //setIndustries();
   document.getElementById('section_trade').style.display = 'flex';
   
@@ -443,6 +445,7 @@ function calculations(status) {
   document.getElementById('section_price_coefficient').style.display = 'none';
   document.getElementById('section_mpl_coefficient').style.display = 'none';
   document.getElementById('proceed_three_question').style.display = 'none';
+  document.getElementById('my_email').style.display = 'none';
   document.getElementById('nav-buttons').style.display = 'block';
   document.getElementById(`absolute_advantage`).classList.add('active');
   absolute_advantage();

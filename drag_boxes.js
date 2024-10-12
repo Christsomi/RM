@@ -93,6 +93,49 @@ function dragElement(elmnt) {
     }
 }
 
+function resizePPFBox(boxId, amount, chart) {
+    // Get the PPF draggable box element
+    const draggableBox = document.getElementById(boxId);
+
+    // Get current dimensions using computed style or explicit values if already set
+    let currentWidth = parseInt(draggableBox.style.width) || draggableBox.offsetWidth;
+    let currentHeight = parseInt(draggableBox.style.height) || draggableBox.offsetHeight;
+
+    console.log("Resizing PPF box by: " + amount);
+    console.log("Current width: " + currentWidth);
+    console.log("Current height: " + currentHeight);
+
+    // Define minimum dimensions
+    const minWidth = 100;
+    const minHeight = 10;
+
+    // Get viewport width and height
+    const maxWidth = window.innerWidth;  // Maximum width up to the full viewport
+    const maxHeight = window.innerHeight; // Maximum height up to the full viewport
+
+    // Calculate new dimensions, ensuring they stay within bounds
+    let newWidth = Math.max(minWidth, Math.min(currentWidth + amount, maxWidth));
+    let newHeight = Math.max(minHeight, Math.min(currentHeight + amount, maxHeight));
+
+    console.log("New width: " + newWidth);
+    console.log("New height: " + newHeight);
+
+    // Apply new dimensions
+    draggableBox.style.width = newWidth + 'px';
+    draggableBox.style.height = newHeight + 'px';
+
+    console.log("Applied width: " + draggableBox.style.width);
+    console.log("Applied height: " + draggableBox.style.height);
+
+    // Adjust the chart scale based on new dimensions
+    chart.options.scales.x.min = 0;
+    chart.options.scales.x.max = newWidth / 10;  // Dynamically adjust max value
+    chart.options.scales.y.min = 0;
+    chart.options.scales.y.max = newHeight / 10;  // Dynamically adjust max value
+    chart.update();  // Update the chart to apply new scaling
+}
+
+
 // Example usage
 makeDraggable('draggableBoxWagesCountryOne');
 makeDraggable('draggableBoxWagesCountryTwo');

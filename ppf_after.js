@@ -1,10 +1,70 @@
 let myChart1; // Declare myChart1 as a global variable
 let myChart2; // Declare myChart2 as a global variable
 
+let movLine;
+
+function plot_mov(chart, initialData, finalData, steps) {
+    // Remove existing mov line if it exists
+    if (movLine) {
+        chart.data.datasets = chart.data.datasets.filter(dataset => dataset.label !== 'MOV Line');
+    }
+
+    // Add initial mov line (same as PPF)
+    movLine = {
+        label: 'MOV Line',
+        data: initialData,
+        fill: false,
+        borderColor: 'rgb(255, 99, 132)',
+        tension: 0.1,
+        borderDash: [5, 5] // Make the line dashed
+    };
+
+    chart.data.datasets.push(movLine);
+    chart.update();
+}
+
+function anim(chart, initialData, finalData, steps) {
+    let currentStep = 0;
+
+    function animate() {
+        if (currentStep < steps) {
+            // Calculate intermediate points
+            const newData = initialData.map((point, index) => ({
+                x: point.x + (finalData[index].x - point.x) * (currentStep / steps),
+                y: point.y + (finalData[index].y - point.y) * (currentStep / steps)
+            }));
+
+            // Update mov line data
+            movLine.data = newData;
+            chart.update();
+
+            currentStep++;
+            requestAnimationFrame(animate);
+        }
+    }
+
+    animate();
+}
+
+
 
 function decidePPFat() {
     if (countryOneMPLRatioGood1 > countryTwoMPLRatioGood1) {
         plotPPF1at();
+        const initialData = [
+            { x: 0, y: MPLcountryOneGoodTwo * countryOneLabor },
+            { x: midpoint1X, y: midpoint1Y },
+            { x: MPLcountryOneGoodOne * countryOneLabor, y: 0 }
+        ];
+        const finalData = [
+            { x: 0, y: newYIntercept },
+            { x: newMidpointX, y: newMidpointY },
+            { x: newXIntercept, y: 0 }
+        ];
+        
+        plot_mov(myChart1, initialData, initialData, 60);
+        anim(myChart1, initialData, finalData, 60);
+
         console.log('plotPPF1 ');
     } else {
         plotPPF2at();
@@ -315,3 +375,4 @@ function plotPPF2at() {  // Here I have a case when country one has a comparativ
     });
 
 }
+

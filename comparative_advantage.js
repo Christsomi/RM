@@ -89,8 +89,8 @@ function calculateLaborCaseOne() {
 function calculateLaborCaseTwo() {
   let found = false;
   while (!found) {
-      countryOneLabor = getRandomInt(0, 100); 
-      countryTwoLabor = getRandomInt(0, 100);
+      countryOneLabor = getRandomInt(1, 100); 
+      countryTwoLabor = getRandomInt(1, 100);
 
       
       console.log("Country One Labor:", countryOneLabor);

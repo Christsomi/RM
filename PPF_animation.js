@@ -571,7 +571,7 @@ function decidePPF_animation() {
     });
   
     myChart1.data.datasets.push({
-        label: countryTwoName + ' Indifference Curve',
+        label: countryOneName + ' Indifference Curve After Trade',
         data: curveData1AfterTrade,
         fill: false,
         borderColor: 'rgba(192, 75, 75, 0.5)',
@@ -675,7 +675,7 @@ function decidePPF_animation() {
     });
   
     myChart1.data.datasets.push({
-        label: countryTwoName + ' Indifference Curve',
+        label: countryTwoName + ' Indifference Curve After Trade',
         data: curveData1AfterTrade,
         fill: false,
         borderColor: 'rgba(192, 75, 75, 0.5)',
